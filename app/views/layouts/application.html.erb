@@ -20,9 +20,14 @@
             <span class="icon-bar"></span>
           </button>
         <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
+    
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
+            <% if logged_in? %>
+              <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+            <% end %>
+           
            <!--  nav here -->
           </ul>
         </div><!--/.nav-collapse -->
@@ -31,6 +36,7 @@
 
     <!-- content -->
     <div class="container"  role="main">
+    <%= render 'layouts/messages' %>
       <%= yield %>
     </div>
 
